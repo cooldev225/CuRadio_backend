@@ -21,7 +21,7 @@ if(config.RMS_DB_SYNC) sequelize.sync({
     force: config.RMS_DB_SYNC_FORCE
 });
 
-const db = {};//initModels(sequelize);
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-module.exports = db;
+const rms_db = {};//initModels(sequelize);
+rms_db.Sequelize = Sequelize;
+rms_db.sequelize = sequelize;
+module.exports = rms_db;

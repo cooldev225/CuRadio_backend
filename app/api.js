@@ -13,9 +13,19 @@ router.get('/test', async (req, res) => {
 router.post('/getRMS', async (req, res) => {
     var form = new multiparty.Form();
     form.parse(req, async function(err, params, files) {
-        if(params===null||params.a===undefined||params.f===undefined||params.cugate_track_id===undefined||params.time_period===undefined)
+        if(params===null||params===undefined||params.a===undefined||params.f===undefined||params.cugate_track_id===undefined||params.time_period===undefined)
             return res.json(FormatAnswer({message: 'wrong params'}, config.ERROR_OBJ));
         let result = await models.getRMS(params);
+        return res.json(FormatAnswer({result}, config.SUCCESS_OBJ)); 
+    });
+});
+
+router.post('/getTrackInfo', async (req, res) => {
+    var form = new multiparty.Form();
+    form.parse(req, async function(err, params, files) {
+        if(params===null||params===undefined||params.id===undefined||params.id<=0)
+            return res.json(FormatAnswer({message: 'wrong params'}, config.ERROR_OBJ));
+        let result = await models.getTrackInfo(params.id);
         return res.json(FormatAnswer({result}, config.SUCCESS_OBJ)); 
     });
 });
