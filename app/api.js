@@ -12,7 +12,7 @@ const auth_model = require('./modules/auth');
  router.post('/login', async (req, res) => {
     var form = new multiparty.Form();
     form.parse(req, async function(err, params, files) {
-        if(params===null||params===undefined||params.submit===undefined||params.username===undefined||params.password===undefined)
+        if(params===null||params===undefined||params.submit===undefined||params.user===undefined||params.password===undefined)
             return res.json(FormatAnswer({message: 'wrong params'}, config.ERROR_OBJ));
         let result = await auth_model.login(params);
         return res.json(FormatAnswer({result}, config.SUCCESS_OBJ)); 
