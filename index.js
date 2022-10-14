@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to CugateAPI." });
 });
 app.use('/api', require(`./app/api`));
+app.use('/api/auth', require(`./app/api_auth`));
 const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
