@@ -1,6 +1,6 @@
 const radio_db = require("../radio_models");
 const { QueryTypes, Op } = require("sequelize");
-const { getRandString } = require('./utils');
+const { getRandString } = require('../utils');
 const md5 = require("md5");
 
 exports.login = async (params) => {
