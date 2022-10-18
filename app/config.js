@@ -4,6 +4,7 @@ module.exports.MODE = process.env.MODE;
 module.exports.ERROR_OBJ = {status: false};
 module.exports.SUCCESS_OBJ = {status: true};
 module.exports.FRONTEND_URL = process.env.FRONTEND_URL;
+module.exports.APP_SECRET_KEY = process.env.APP_SECRET_KEY;
 
 module.exports.RMS_APP_DOMAIN = process.env.RMS_APP_DOMAIN;
 
