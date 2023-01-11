@@ -1,11 +1,11 @@
 const config = require("../config");
 const { Sequelize } = require("sequelize");
+const Op = Sequelize.Op;
 
 const sequelize = new Sequelize(config.RMS_DB_NAME, config.RMS_DB_USER, config.RMS_DB_PASSWORD, {
     host: config.RMS_DB_HOST,
     port: config.RMS_DB_PORT,
     dialect: config.DB.dialect,
-    logging: config.RMS_DB_SYNC ? console.log : false,
     pool: {
         max: config.DB.pool.max,
         min: config.DB.pool.min,

@@ -63,3 +63,13 @@ module.exports.getRandString = (length, chars = '0123456789abcdefghijklmnopqrstu
     for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
     return result;
 }
+
+module.exports.GetToken = (req) => {
+	if( req.headers.authorization ) {
+		let token = req.headers.authorization.split(" ");
+		if(token[0] == "Bearer"){
+			return token[1];
+		}
+	}
+	return "";
+}

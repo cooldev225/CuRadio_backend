@@ -5,7 +5,7 @@ const sequelize = new Sequelize(config.RADIO_DB_NAME, config.RADIO_DB_USER, conf
     host: config.RADIO_DB_HOST,
     port: config.RADIO_DB_PORT,
     dialect: config.DB.dialect,
-    logging: config.RADIO_DB_SYNC ? console.log : false,
+    logging: console.log,
     pool: {
         max: config.DB.pool.max,
         min: config.DB.pool.min,
@@ -22,6 +22,5 @@ if(config.RADIO_DB_SYNC) sequelize.sync({
 });
 
 const RADIO_DB = {};//initModels(sequelize);
-RADIO_DB.Sequelize = Sequelize;
 RADIO_DB.sequelize = sequelize;
 module.exports = RADIO_DB;
